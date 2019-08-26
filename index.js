@@ -20,7 +20,7 @@
  */
 //var util = require("util"); // to debug
 module.exports = function(htmlText, wndw) {
-  wndw = wndw || window;
+  wndw = wndw;
 
   // set default styles
   var defaultStyles = {
