@@ -29,15 +29,15 @@ module.exports = function(htmlText, wndw) {
     u: {decoration:'underline'},
     em: {italics:true},
     i: {italics:true},
-    h1: {fontSize:24, bold:true, marginBottom:5},
-    h2: {fontSize:22, bold:true, marginBottom:5},
-    h3: {fontSize:20, bold:true, marginBottom:5},
-    h4: {fontSize:18, bold:true, marginBottom:5},
-    h5: {fontSize:16, bold:true, marginBottom:5},
-    h6: {fontSize:14, bold:true, marginBottom:5},
+    h1: {fontSize:20, bold:true, marginBottom:5},
+    h2: {fontSize:18, bold:true, marginBottom:5},
+    h3: {fontSize:16, bold:true, marginBottom:5},
+    h4: {fontSize:14, bold:true, marginBottom:5},
+    h5: {fontSize:12, bold:true, marginBottom:5},
+    h6: {fontSize:10, bold:true, marginBottom:5},
     a: {color:'blue', decoration:'underline'},
     strike: {decoration: 'lineThrough'},
-    p: {margin:[0, 5, 0, 10]},
+    p: {}, // removing weird marging -> {margin:[0, 5, 0, 10]},
     ul: {marginBottom:5},
     li: {marginLeft:5},
     table: {marginBottom:5},
@@ -94,6 +94,9 @@ module.exports = function(htmlText, wndw) {
           text = element.textContent.replace(/\n(\s+)?/g, "");
           if (text) {
             ret = {'text': text};
+	    if (text.startsWith(' ') || text.startsWith('\t'))
+		ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
+
             if (parentNodeName) {
               // do we have a default style to apply?
               // for 'p' we want to apply it from the parent
