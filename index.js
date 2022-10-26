@@ -238,7 +238,7 @@ module.exports = function(htmlText, wndw) {
           }
         }
 
-        return ret;
+        return ret !== '\n' ? ret : '';
       }
     }
     return "";
