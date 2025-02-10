@@ -22,6 +22,6 @@
     "eslint": "^5.16.0",
     "jsdom": "^14.1.0",
     "pdfmake": "^0.1.58",
-    "simple-test-framework": "^0.1.7"
+    "simple-test-framework": "^0.2.1"
   }
 }
